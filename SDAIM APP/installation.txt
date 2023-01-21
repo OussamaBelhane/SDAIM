@@ -1,0 +1,10 @@
+1- Make sure you have already installed SQL Server Management
+2- run SDAIM.sql 
+3- execute Query
+4- run APP SDAIM.exe (SDAIM\SDAIM\bin\Debug\SDAIM.exe) 
+5- click the settings icon (bottom-left) 
+6- write sql server management server name 
+
+
+If you have a problem or want something else you can find me here : 
+oussama.belhane@gmail.com

@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SDAIMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Catégorie">
+    <Key>
+      <PropertyRef Name="id_cat" />
+    </Key>
+    <Property Name="id_cat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom_cat" Type="varchar" MaxLength="50" />
+    <Property Name="image_cat" Type="image" />
+  </EntityType>
+  <EntityType Name="Employés">
+    <Key>
+      <PropertyRef Name="id_employé" />
+    </Key>
+    <Property Name="id_employé" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="varchar" MaxLength="50" />
+    <Property Name="Prénom" Type="varchar" MaxLength="50" />
+    <Property Name="num_tel" Type="varchar" MaxLength="50" />
+    <Property Name="CIN" Type="varchar" MaxLength="50" />
+    <Property Name="Département" Type="varchar" MaxLength="50" />
+    <Property Name="image_emp" Type="image" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+    <Property Name="Salaire" Type="money" />
+    <Property Name="Prix_h" Type="money" />
+    <Property Name="nbr_h" Type="money" />
+  </EntityType>
+  <EntityType Name="Fournisseurs">
+    <Key>
+      <PropertyRef Name="id_four" />
+    </Key>
+    <Property Name="id_four" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom_four" Type="varchar" MaxLength="50" />
+    <Property Name="phone_four" Type="varchar" MaxLength="50" />
+    <Property Name="email_four" Type="varchar" MaxLength="150" />
+    <Property Name="image_four" Type="image" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="id_pro" />
+    </Key>
+    <Property Name="id_pro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pro_nom" Type="varchar" MaxLength="50" />
+    <Property Name="pro_date" Type="date" />
+    <Property Name="pro_qte" Type="float" />
+    <Property Name="pro_price" Type="float" />
+    <Property Name="pro_désignation" Type="varchar" MaxLength="50" />
+    <Property Name="pro_ttc" Type="float" />
+  </EntityType>
+  <EntityType Name="Project_info">
+    <Key>
+      <PropertyRef Name="id_proi" />
+    </Key>
+    <Property Name="id_proi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pro_nom" Type="varchar" MaxLength="50" />
+    <Property Name="pro_date" Type="date" />
+    <Property Name="pro_price" Type="float" />
+  </EntityType>
+  <EntityType Name="Project_m">
+    <Key>
+      <PropertyRef Name="id_mpro" />
+    </Key>
+    <Property Name="id_mpro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomp_mpro" Type="varchar" MaxLength="50" />
+    <Property Name="nom_mpro" Type="varchar" MaxLength="50" />
+    <Property Name="prix_mpro" Type="float" />
+    <Property Name="date_mpro" Type="date" />
+  </EntityType>
+  <EntityType Name="project_p">
+    <Key>
+      <PropertyRef Name="id_ppro" />
+    </Key>
+    <Property Name="id_ppro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom_ppro" Type="varchar" MaxLength="50" />
+    <Property Name="pt_ppro" Type="float" />
+    <Property Name="p_ppro" Type="float" />
+    <Property Name="g_ppro" Type="float" />
+    <Property Name="date_ppro" Type="date" />
+  </EntityType>
+  <EntityType Name="Purchase">
+    <Key>
+      <PropertyRef Name="id_pur" />
+    </Key>
+    <Property Name="id_pur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_cat" Type="int" />
+    <Property Name="id_four" Type="int" />
+    <Property Name="Désignation" Type="nvarchar" MaxLength="50" />
+    <Property Name="Unité" Type="nvarchar" MaxLength="50" />
+    <Property Name="Catégorie" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fournisseur" Type="nvarchar" MaxLength="50" />
+    <Property Name="Prix.U.H.T" Type="float" />
+    <Property Name="T.V.A" Type="float" />
+    <Property Name="Poids" Type="float" />
+    <Property Name="Quantité" Type="float" />
+    <Property Name="Total.H.T" Type="float" />
+    <Property Name="Total.T.V.A" Type="float" />
+    <Property Name="Total.T.C" Type="float" />
+  </EntityType>
+  <EntityType Name="Salaire">
+    <Key>
+      <PropertyRef Name="id_salaire" />
+    </Key>
+    <Property Name="id_salaire" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="varchar" MaxLength="50" />
+    <Property Name="Prénom" Type="varchar" MaxLength="50" />
+    <Property Name="num_tel" Type="varchar" MaxLength="50" />
+    <Property Name="CIN" Type="varchar" MaxLength="50" />
+    <Property Name="Département" Type="varchar" MaxLength="50" />
+    <Property Name="image_emp" Type="image" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+    <Property Name="Salaire" Type="float" />
+    <Property Name="Prix_h" Type="float" />
+    <Property Name="nbr_h" Type="float" />
+  </EntityType>
+  <EntityType Name="stock">
+    <Key>
+      <PropertyRef Name="id_sto" />
+    </Key>
+    <Property Name="id_sto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_cat" Type="int" />
+    <Property Name="id_four" Type="int" />
+    <Property Name="Désignation" Type="nvarchar" MaxLength="50" />
+    <Property Name="Unité" Type="nvarchar" MaxLength="50" />
+    <Property Name="Catégorie" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fournisseur" Type="nvarchar" MaxLength="50" />
+    <Property Name="Prix.U.H.T" Type="float" />
+    <Property Name="T.V.A" Type="float" />
+    <Property Name="Poids" Type="float" />
+    <Property Name="Quantité" Type="float" />
+    <Property Name="Total.H.T" Type="float" />
+    <Property Name="Total.T.V.A" Type="float" />
+    <Property Name="Total.T.C" Type="float" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user" Type="varchar" MaxLength="50" />
+    <Property Name="pwd" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Purchase_Catégorie">
+    <End Role="Catégorie" Type="Self.Catégorie" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Catégorie">
+        <PropertyRef Name="id_cat" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="id_cat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_Fournisseurs">
+    <End Role="Fournisseurs" Type="Self.Fournisseurs" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fournisseurs">
+        <PropertyRef Name="id_four" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="id_four" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_stock_Catégorie">
+    <End Role="Catégorie" Type="Self.Catégorie" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="stock" Type="Self.stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Catégorie">
+        <PropertyRef Name="id_cat" />
+      </Principal>
+      <Dependent Role="stock">
+        <PropertyRef Name="id_cat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_stock_Fournisseurs">
+    <End Role="Fournisseurs" Type="Self.Fournisseurs" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="stock" Type="Self.stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fournisseurs">
+        <PropertyRef Name="id_four" />
+      </Principal>
+      <Dependent Role="stock">
+        <PropertyRef Name="id_four" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SDAIMModelStoreContainer">
+    <EntitySet Name="Catégorie" EntityType="Self.Catégorie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employés" EntityType="Self.Employés" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fournisseurs" EntityType="Self.Fournisseurs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Project_info" EntityType="Self.Project_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Project_m" EntityType="Self.Project_m" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="project_p" EntityType="Self.project_p" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Purchase" EntityType="Self.Purchase" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Salaire" EntityType="Self.Salaire" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="stock" EntityType="Self.stock" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Purchase_Catégorie" Association="Self.FK_Purchase_Catégorie">
+      <End Role="Catégorie" EntitySet="Catégorie" />
+      <End Role="Purchase" EntitySet="Purchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Fournisseurs" Association="Self.FK_Purchase_Fournisseurs">
+      <End Role="Fournisseurs" EntitySet="Fournisseurs" />
+      <End Role="Purchase" EntitySet="Purchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_stock_Catégorie" Association="Self.FK_stock_Catégorie">
+      <End Role="Catégorie" EntitySet="Catégorie" />
+      <End Role="stock" EntitySet="stock" />
+    </AssociationSet>
+    <AssociationSet Name="FK_stock_Fournisseurs" Association="Self.FK_stock_Fournisseurs">
+      <End Role="Fournisseurs" EntitySet="Fournisseurs" />
+      <End Role="stock" EntitySet="stock" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

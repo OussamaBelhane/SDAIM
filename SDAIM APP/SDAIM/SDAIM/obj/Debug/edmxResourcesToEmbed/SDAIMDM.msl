@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SDAIMModelStoreContainer" CdmEntityContainer="SDAIMEntities">
+    <EntitySetMapping Name="Catégorie">
+      <EntityTypeMapping TypeName="SDAIMModel.Catégorie">
+        <MappingFragment StoreEntitySet="Catégorie">
+          <ScalarProperty Name="image_cat" ColumnName="image_cat" />
+          <ScalarProperty Name="nom_cat" ColumnName="nom_cat" />
+          <ScalarProperty Name="id_cat" ColumnName="id_cat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fournisseurs">
+      <EntityTypeMapping TypeName="SDAIMModel.Fournisseurs">
+        <MappingFragment StoreEntitySet="Fournisseurs">
+          <ScalarProperty Name="image_four" ColumnName="image_four" />
+          <ScalarProperty Name="email_four" ColumnName="email_four" />
+          <ScalarProperty Name="phone_four" ColumnName="phone_four" />
+          <ScalarProperty Name="nom_four" ColumnName="nom_four" />
+          <ScalarProperty Name="id_four" ColumnName="id_four" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchase">
+      <EntityTypeMapping TypeName="SDAIMModel.Purchase">
+        <MappingFragment StoreEntitySet="Purchase">
+          <ScalarProperty Name="Total_T_C" ColumnName="Total.T.C" />
+          <ScalarProperty Name="Total_T_V_A" ColumnName="Total.T.V.A" />
+          <ScalarProperty Name="Total_H_T" ColumnName="Total.H.T" />
+          <ScalarProperty Name="Quantité" ColumnName="Quantité" />
+          <ScalarProperty Name="Poids" ColumnName="Poids" />
+          <ScalarProperty Name="T_V_A" ColumnName="T.V.A" />
+          <ScalarProperty Name="Prix_U_H_T" ColumnName="Prix.U.H.T" />
+          <ScalarProperty Name="Fournisseur" ColumnName="Fournisseur" />
+          <ScalarProperty Name="Catégorie" ColumnName="Catégorie" />
+          <ScalarProperty Name="Unité" ColumnName="Unité" />
+          <ScalarProperty Name="Désignation" ColumnName="Désignation" />
+          <ScalarProperty Name="id_four" ColumnName="id_four" />
+          <ScalarProperty Name="id_cat" ColumnName="id_cat" />
+          <ScalarProperty Name="id_pur" ColumnName="id_pur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employés">
+      <EntityTypeMapping TypeName="SDAIMModel.Employés">
+        <MappingFragment StoreEntitySet="Employés">
+          <ScalarProperty Name="nbr_h" ColumnName="nbr_h" />
+          <ScalarProperty Name="Prix_h" ColumnName="Prix_h" />
+          <ScalarProperty Name="Salaire" ColumnName="Salaire" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="image_emp" ColumnName="image_emp" />
+          <ScalarProperty Name="Département" ColumnName="Département" />
+          <ScalarProperty Name="CIN" ColumnName="CIN" />
+          <ScalarProperty Name="num_tel" ColumnName="num_tel" />
+          <ScalarProperty Name="Prénom" ColumnName="Prénom" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="id_employé" ColumnName="id_employé" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salaire">
+      <EntityTypeMapping TypeName="SDAIMModel.Salaire">
+        <MappingFragment StoreEntitySet="Salaire">
+          <ScalarProperty Name="nbr_h" ColumnName="nbr_h" />
+          <ScalarProperty Name="Prix_h" ColumnName="Prix_h" />
+          <ScalarProperty Name="Salaire1" ColumnName="Salaire" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="image_emp" ColumnName="image_emp" />
+          <ScalarProperty Name="Département" ColumnName="Département" />
+          <ScalarProperty Name="CIN" ColumnName="CIN" />
+          <ScalarProperty Name="num_tel" ColumnName="num_tel" />
+          <ScalarProperty Name="Prénom" ColumnName="Prénom" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="id_salaire" ColumnName="id_salaire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stock">
+      <EntityTypeMapping TypeName="SDAIMModel.stock">
+        <MappingFragment StoreEntitySet="stock">
+          <ScalarProperty Name="Total_T_C" ColumnName="Total.T.C" />
+          <ScalarProperty Name="Total_T_V_A" ColumnName="Total.T.V.A" />
+          <ScalarProperty Name="Total_H_T" ColumnName="Total.H.T" />
+          <ScalarProperty Name="Quantité" ColumnName="Quantité" />
+          <ScalarProperty Name="Poids" ColumnName="Poids" />
+          <ScalarProperty Name="T_V_A" ColumnName="T.V.A" />
+          <ScalarProperty Name="Prix_U_H_T" ColumnName="Prix.U.H.T" />
+          <ScalarProperty Name="Fournisseur" ColumnName="Fournisseur" />
+          <ScalarProperty Name="Catégorie" ColumnName="Catégorie" />
+          <ScalarProperty Name="Unité" ColumnName="Unité" />
+          <ScalarProperty Name="Désignation" ColumnName="Désignation" />
+          <ScalarProperty Name="id_four" ColumnName="id_four" />
+          <ScalarProperty Name="id_cat" ColumnName="id_cat" />
+          <ScalarProperty Name="id_sto" ColumnName="id_sto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Project">
+      <EntityTypeMapping TypeName="SDAIMModel.Project">
+        <MappingFragment StoreEntitySet="Project">
+          <ScalarProperty Name="pro_ttc" ColumnName="pro_ttc" />
+          <ScalarProperty Name="pro_désignation" ColumnName="pro_désignation" />
+          <ScalarProperty Name="pro_price" ColumnName="pro_price" />
+          <ScalarProperty Name="pro_qte" ColumnName="pro_qte" />
+          <ScalarProperty Name="pro_date" ColumnName="pro_date" />
+          <ScalarProperty Name="pro_nom" ColumnName="pro_nom" />
+          <ScalarProperty Name="id_pro" ColumnName="id_pro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Project_info">
+      <EntityTypeMapping TypeName="SDAIMModel.Project_info">
+        <MappingFragment StoreEntitySet="Project_info">
+          <ScalarProperty Name="pro_price" ColumnName="pro_price" />
+          <ScalarProperty Name="pro_date" ColumnName="pro_date" />
+          <ScalarProperty Name="pro_nom" ColumnName="pro_nom" />
+          <ScalarProperty Name="id_proi" ColumnName="id_proi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="project_p">
+      <EntityTypeMapping TypeName="SDAIMModel.project_p">
+        <MappingFragment StoreEntitySet="project_p">
+          <ScalarProperty Name="date_ppro" ColumnName="date_ppro" />
+          <ScalarProperty Name="g_ppro" ColumnName="g_ppro" />
+          <ScalarProperty Name="p_ppro" ColumnName="p_ppro" />
+          <ScalarProperty Name="pt_ppro" ColumnName="pt_ppro" />
+          <ScalarProperty Name="nom_ppro" ColumnName="nom_ppro" />
+          <ScalarProperty Name="id_ppro" ColumnName="id_ppro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="SDAIMModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="pwd" ColumnName="pwd" />
+          <ScalarProperty Name="user1" ColumnName="user" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Project_m">
+      <EntityTypeMapping TypeName="SDAIMModel.Project_m">
+        <MappingFragment StoreEntitySet="Project_m">
+          <ScalarProperty Name="date_mpro" ColumnName="date_mpro" />
+          <ScalarProperty Name="prix_mpro" ColumnName="prix_mpro" />
+          <ScalarProperty Name="nom_mpro" ColumnName="nom_mpro" />
+          <ScalarProperty Name="nomp_mpro" ColumnName="nomp_mpro" />
+          <ScalarProperty Name="id_mpro" ColumnName="id_mpro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

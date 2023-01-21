@@ -1,0 +1,644 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SDAIMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Catégorie">
+          <Key>
+            <PropertyRef Name="id_cat" />
+          </Key>
+          <Property Name="id_cat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom_cat" Type="varchar" MaxLength="50" />
+          <Property Name="image_cat" Type="image" />
+        </EntityType>
+        <EntityType Name="Employés">
+          <Key>
+            <PropertyRef Name="id_employé" />
+          </Key>
+          <Property Name="id_employé" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="50" />
+          <Property Name="Prénom" Type="varchar" MaxLength="50" />
+          <Property Name="num_tel" Type="varchar" MaxLength="50" />
+          <Property Name="CIN" Type="varchar" MaxLength="50" />
+          <Property Name="Département" Type="varchar" MaxLength="50" />
+          <Property Name="image_emp" Type="image" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="Salaire" Type="money" />
+          <Property Name="Prix_h" Type="money" />
+          <Property Name="nbr_h" Type="money" />
+        </EntityType>
+        <EntityType Name="Fournisseurs">
+          <Key>
+            <PropertyRef Name="id_four" />
+          </Key>
+          <Property Name="id_four" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom_four" Type="varchar" MaxLength="50" />
+          <Property Name="phone_four" Type="varchar" MaxLength="50" />
+          <Property Name="email_four" Type="varchar" MaxLength="150" />
+          <Property Name="image_four" Type="image" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="id_pro" />
+          </Key>
+          <Property Name="id_pro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pro_nom" Type="varchar" MaxLength="50" />
+          <Property Name="pro_date" Type="date" />
+          <Property Name="pro_qte" Type="float" />
+          <Property Name="pro_price" Type="float" />
+          <Property Name="pro_désignation" Type="varchar" MaxLength="50" />
+          <Property Name="pro_ttc" Type="float" />
+        </EntityType>
+        <EntityType Name="Project_info">
+          <Key>
+            <PropertyRef Name="id_proi" />
+          </Key>
+          <Property Name="id_proi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pro_nom" Type="varchar" MaxLength="50" />
+          <Property Name="pro_date" Type="date" />
+          <Property Name="pro_price" Type="float" />
+        </EntityType>
+        <EntityType Name="Project_m">
+          <Key>
+            <PropertyRef Name="id_mpro" />
+          </Key>
+          <Property Name="id_mpro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomp_mpro" Type="varchar" MaxLength="50" />
+          <Property Name="nom_mpro" Type="varchar" MaxLength="50" />
+          <Property Name="prix_mpro" Type="float" />
+          <Property Name="date_mpro" Type="date" />
+        </EntityType>
+        <EntityType Name="project_p">
+          <Key>
+            <PropertyRef Name="id_ppro" />
+          </Key>
+          <Property Name="id_ppro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom_ppro" Type="varchar" MaxLength="50" />
+          <Property Name="pt_ppro" Type="float" />
+          <Property Name="p_ppro" Type="float" />
+          <Property Name="g_ppro" Type="float" />
+          <Property Name="date_ppro" Type="date" />
+        </EntityType>
+        <EntityType Name="Purchase">
+          <Key>
+            <PropertyRef Name="id_pur" />
+          </Key>
+          <Property Name="id_pur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_cat" Type="int" />
+          <Property Name="id_four" Type="int" />
+          <Property Name="Désignation" Type="nvarchar" MaxLength="50" />
+          <Property Name="Unité" Type="nvarchar" MaxLength="50" />
+          <Property Name="Catégorie" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fournisseur" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prix.U.H.T" Type="float" />
+          <Property Name="T.V.A" Type="float" />
+          <Property Name="Poids" Type="float" />
+          <Property Name="Quantité" Type="float" />
+          <Property Name="Total.H.T" Type="float" />
+          <Property Name="Total.T.V.A" Type="float" />
+          <Property Name="Total.T.C" Type="float" />
+        </EntityType>
+        <EntityType Name="Salaire">
+          <Key>
+            <PropertyRef Name="id_salaire" />
+          </Key>
+          <Property Name="id_salaire" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="50" />
+          <Property Name="Prénom" Type="varchar" MaxLength="50" />
+          <Property Name="num_tel" Type="varchar" MaxLength="50" />
+          <Property Name="CIN" Type="varchar" MaxLength="50" />
+          <Property Name="Département" Type="varchar" MaxLength="50" />
+          <Property Name="image_emp" Type="image" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="Salaire" Type="float" />
+          <Property Name="Prix_h" Type="float" />
+          <Property Name="nbr_h" Type="float" />
+        </EntityType>
+        <EntityType Name="stock">
+          <Key>
+            <PropertyRef Name="id_sto" />
+          </Key>
+          <Property Name="id_sto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_cat" Type="int" />
+          <Property Name="id_four" Type="int" />
+          <Property Name="Désignation" Type="nvarchar" MaxLength="50" />
+          <Property Name="Unité" Type="nvarchar" MaxLength="50" />
+          <Property Name="Catégorie" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fournisseur" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prix.U.H.T" Type="float" />
+          <Property Name="T.V.A" Type="float" />
+          <Property Name="Poids" Type="float" />
+          <Property Name="Quantité" Type="float" />
+          <Property Name="Total.H.T" Type="float" />
+          <Property Name="Total.T.V.A" Type="float" />
+          <Property Name="Total.T.C" Type="float" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user" Type="varchar" MaxLength="50" />
+          <Property Name="pwd" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Purchase_Catégorie">
+          <End Role="Catégorie" Type="Self.Catégorie" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catégorie">
+              <PropertyRef Name="id_cat" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="id_cat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Fournisseurs">
+          <End Role="Fournisseurs" Type="Self.Fournisseurs" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fournisseurs">
+              <PropertyRef Name="id_four" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="id_four" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_stock_Catégorie">
+          <End Role="Catégorie" Type="Self.Catégorie" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="stock" Type="Self.stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catégorie">
+              <PropertyRef Name="id_cat" />
+            </Principal>
+            <Dependent Role="stock">
+              <PropertyRef Name="id_cat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_stock_Fournisseurs">
+          <End Role="Fournisseurs" Type="Self.Fournisseurs" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="stock" Type="Self.stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fournisseurs">
+              <PropertyRef Name="id_four" />
+            </Principal>
+            <Dependent Role="stock">
+              <PropertyRef Name="id_four" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SDAIMModelStoreContainer">
+          <EntitySet Name="Catégorie" EntityType="Self.Catégorie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employés" EntityType="Self.Employés" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fournisseurs" EntityType="Self.Fournisseurs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Project_info" EntityType="Self.Project_info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Project_m" EntityType="Self.Project_m" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="project_p" EntityType="Self.project_p" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchase" EntityType="Self.Purchase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Salaire" EntityType="Self.Salaire" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="stock" EntityType="Self.stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Purchase_Catégorie" Association="Self.FK_Purchase_Catégorie">
+            <End Role="Catégorie" EntitySet="Catégorie" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Fournisseurs" Association="Self.FK_Purchase_Fournisseurs">
+            <End Role="Fournisseurs" EntitySet="Fournisseurs" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stock_Catégorie" Association="Self.FK_stock_Catégorie">
+            <End Role="Catégorie" EntitySet="Catégorie" />
+            <End Role="stock" EntitySet="stock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stock_Fournisseurs" Association="Self.FK_stock_Fournisseurs">
+            <End Role="Fournisseurs" EntitySet="Fournisseurs" />
+            <End Role="stock" EntitySet="stock" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SDAIMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SDAIMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Catégorie" EntityType="SDAIMModel.Catégorie" />
+          <EntitySet Name="Fournisseurs" EntityType="SDAIMModel.Fournisseurs" />
+          <EntitySet Name="Purchase" EntityType="SDAIMModel.Purchase" />
+          <AssociationSet Name="FK_Purchase_Catégorie" Association="SDAIMModel.FK_Purchase_Catégorie">
+            <End Role="Catégorie" EntitySet="Catégorie" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Fournisseurs" Association="SDAIMModel.FK_Purchase_Fournisseurs">
+            <End Role="Fournisseurs" EntitySet="Fournisseurs" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <EntitySet Name="Employés" EntityType="SDAIMModel.Employés" />
+          <EntitySet Name="Salaire" EntityType="SDAIMModel.Salaire" />
+          <EntitySet Name="stock" EntityType="SDAIMModel.stock" />
+          <AssociationSet Name="FK_stock_Catégorie" Association="SDAIMModel.FK_stock_Catégorie">
+            <End Role="Catégorie" EntitySet="Catégorie" />
+            <End Role="stock" EntitySet="stock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stock_Fournisseurs" Association="SDAIMModel.FK_stock_Fournisseurs">
+            <End Role="Fournisseurs" EntitySet="Fournisseurs" />
+            <End Role="stock" EntitySet="stock" />
+          </AssociationSet>
+          <EntitySet Name="Project" EntityType="SDAIMModel.Project" />
+          <EntitySet Name="Project_info" EntityType="SDAIMModel.Project_info" />
+          <EntitySet Name="project_p" EntityType="SDAIMModel.project_p" />
+          <EntitySet Name="user" EntityType="SDAIMModel.user" />
+          <EntitySet Name="Project_m" EntityType="SDAIMModel.Project_m" />
+          </EntityContainer>
+        <EntityType Name="Catégorie">
+          <Key>
+            <PropertyRef Name="id_cat" />
+          </Key>
+          <Property Name="id_cat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom_cat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="image_cat" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Purchase" Relationship="SDAIMModel.FK_Purchase_Catégorie" FromRole="Catégorie" ToRole="Purchase" />
+          <NavigationProperty Name="stock" Relationship="SDAIMModel.FK_stock_Catégorie" FromRole="Catégorie" ToRole="stock" />
+        </EntityType>
+        <EntityType Name="Fournisseurs">
+          <Key>
+            <PropertyRef Name="id_four" />
+          </Key>
+          <Property Name="id_four" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom_four" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone_four" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email_four" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="image_four" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Purchase" Relationship="SDAIMModel.FK_Purchase_Fournisseurs" FromRole="Fournisseurs" ToRole="Purchase" />
+          <NavigationProperty Name="stock" Relationship="SDAIMModel.FK_stock_Fournisseurs" FromRole="Fournisseurs" ToRole="stock" />
+        </EntityType>
+        <EntityType Name="Purchase">
+          <Key>
+            <PropertyRef Name="id_pur" />
+          </Key>
+          <Property Name="id_pur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_cat" Type="Int32" />
+          <Property Name="id_four" Type="Int32" />
+          <Property Name="Désignation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Unité" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Catégorie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fournisseur" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prix_U_H_T" Type="Double" />
+          <Property Name="T_V_A" Type="Double" />
+          <Property Name="Poids" Type="Double" />
+          <Property Name="Quantité" Type="Double" />
+          <Property Name="Total_H_T" Type="Double" />
+          <Property Name="Total_T_V_A" Type="Double" />
+          <Property Name="Total_T_C" Type="Double" />
+          <NavigationProperty Name="Catégorie1" Relationship="SDAIMModel.FK_Purchase_Catégorie" FromRole="Purchase" ToRole="Catégorie" />
+          <NavigationProperty Name="Fournisseurs" Relationship="SDAIMModel.FK_Purchase_Fournisseurs" FromRole="Purchase" ToRole="Fournisseurs" />
+        </EntityType>
+        <Association Name="FK_Purchase_Catégorie">
+          <End Type="SDAIMModel.Catégorie" Role="Catégorie" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SDAIMModel.Purchase" Role="Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catégorie">
+              <PropertyRef Name="id_cat" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="id_cat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Fournisseurs">
+          <End Type="SDAIMModel.Fournisseurs" Role="Fournisseurs" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SDAIMModel.Purchase" Role="Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fournisseurs">
+              <PropertyRef Name="id_four" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="id_four" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Employés">
+          <Key>
+            <PropertyRef Name="id_employé" />
+          </Key>
+          <Property Name="id_employé" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Prénom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="num_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Département" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="image_emp" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Salaire" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Prix_h" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="nbr_h" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="Salaire">
+          <Key>
+            <PropertyRef Name="id_salaire" />
+          </Key>
+          <Property Name="id_salaire" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Prénom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="num_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Département" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="image_emp" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Salaire1" Type="Double" />
+          <Property Name="Prix_h" Type="Double" />
+          <Property Name="nbr_h" Type="Double" />
+        </EntityType>
+        <EntityType Name="stock">
+          <Key>
+            <PropertyRef Name="id_sto" />
+          </Key>
+          <Property Name="id_sto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_cat" Type="Int32" />
+          <Property Name="id_four" Type="Int32" />
+          <Property Name="Désignation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Unité" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Catégorie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fournisseur" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prix_U_H_T" Type="Double" />
+          <Property Name="T_V_A" Type="Double" />
+          <Property Name="Poids" Type="Double" />
+          <Property Name="Quantité" Type="Double" />
+          <Property Name="Total_H_T" Type="Double" />
+          <Property Name="Total_T_V_A" Type="Double" />
+          <Property Name="Total_T_C" Type="Double" />
+          <NavigationProperty Name="Catégorie1" Relationship="SDAIMModel.FK_stock_Catégorie" FromRole="stock" ToRole="Catégorie" />
+          <NavigationProperty Name="Fournisseurs" Relationship="SDAIMModel.FK_stock_Fournisseurs" FromRole="stock" ToRole="Fournisseurs" />
+        </EntityType>
+        <Association Name="FK_stock_Catégorie">
+          <End Type="SDAIMModel.Catégorie" Role="Catégorie" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SDAIMModel.stock" Role="stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catégorie">
+              <PropertyRef Name="id_cat" />
+            </Principal>
+            <Dependent Role="stock">
+              <PropertyRef Name="id_cat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_stock_Fournisseurs">
+          <End Type="SDAIMModel.Fournisseurs" Role="Fournisseurs" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SDAIMModel.stock" Role="stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fournisseurs">
+              <PropertyRef Name="id_four" />
+            </Principal>
+            <Dependent Role="stock">
+              <PropertyRef Name="id_four" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="id_pro" />
+          </Key>
+          <Property Name="id_pro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pro_nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pro_date" Type="DateTime" Precision="0" />
+          <Property Name="pro_qte" Type="Double" />
+          <Property Name="pro_price" Type="Double" />
+          <Property Name="pro_désignation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pro_ttc" Type="Double" />
+        </EntityType>
+        <EntityType Name="Project_info">
+          <Key>
+            <PropertyRef Name="id_proi" />
+          </Key>
+          <Property Name="id_proi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pro_nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pro_date" Type="DateTime" Precision="0" />
+          <Property Name="pro_price" Type="Double" />
+        </EntityType>
+        <EntityType Name="project_p">
+          <Key>
+            <PropertyRef Name="id_ppro" />
+          </Key>
+          <Property Name="id_ppro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom_ppro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pt_ppro" Type="Double" />
+          <Property Name="p_ppro" Type="Double" />
+          <Property Name="g_ppro" Type="Double" />
+          <Property Name="date_ppro" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pwd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Project_m">
+          <Key>
+            <PropertyRef Name="id_mpro" />
+          </Key>
+          <Property Name="id_mpro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomp_mpro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nom_mpro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prix_mpro" Type="Double" />
+          <Property Name="date_mpro" Type="DateTime" Precision="0" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SDAIMModelStoreContainer" CdmEntityContainer="SDAIMEntities">
+          <EntitySetMapping Name="Catégorie">
+            <EntityTypeMapping TypeName="SDAIMModel.Catégorie">
+              <MappingFragment StoreEntitySet="Catégorie">
+                <ScalarProperty Name="image_cat" ColumnName="image_cat" />
+                <ScalarProperty Name="nom_cat" ColumnName="nom_cat" />
+                <ScalarProperty Name="id_cat" ColumnName="id_cat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fournisseurs">
+            <EntityTypeMapping TypeName="SDAIMModel.Fournisseurs">
+              <MappingFragment StoreEntitySet="Fournisseurs">
+                <ScalarProperty Name="image_four" ColumnName="image_four" />
+                <ScalarProperty Name="email_four" ColumnName="email_four" />
+                <ScalarProperty Name="phone_four" ColumnName="phone_four" />
+                <ScalarProperty Name="nom_four" ColumnName="nom_four" />
+                <ScalarProperty Name="id_four" ColumnName="id_four" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purchase">
+            <EntityTypeMapping TypeName="SDAIMModel.Purchase">
+              <MappingFragment StoreEntitySet="Purchase">
+                <ScalarProperty Name="Total_T_C" ColumnName="Total.T.C" />
+                <ScalarProperty Name="Total_T_V_A" ColumnName="Total.T.V.A" />
+                <ScalarProperty Name="Total_H_T" ColumnName="Total.H.T" />
+                <ScalarProperty Name="Quantité" ColumnName="Quantité" />
+                <ScalarProperty Name="Poids" ColumnName="Poids" />
+                <ScalarProperty Name="T_V_A" ColumnName="T.V.A" />
+                <ScalarProperty Name="Prix_U_H_T" ColumnName="Prix.U.H.T" />
+                <ScalarProperty Name="Fournisseur" ColumnName="Fournisseur" />
+                <ScalarProperty Name="Catégorie" ColumnName="Catégorie" />
+                <ScalarProperty Name="Unité" ColumnName="Unité" />
+                <ScalarProperty Name="Désignation" ColumnName="Désignation" />
+                <ScalarProperty Name="id_four" ColumnName="id_four" />
+                <ScalarProperty Name="id_cat" ColumnName="id_cat" />
+                <ScalarProperty Name="id_pur" ColumnName="id_pur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employés">
+            <EntityTypeMapping TypeName="SDAIMModel.Employés">
+              <MappingFragment StoreEntitySet="Employés">
+                <ScalarProperty Name="nbr_h" ColumnName="nbr_h" />
+                <ScalarProperty Name="Prix_h" ColumnName="Prix_h" />
+                <ScalarProperty Name="Salaire" ColumnName="Salaire" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="image_emp" ColumnName="image_emp" />
+                <ScalarProperty Name="Département" ColumnName="Département" />
+                <ScalarProperty Name="CIN" ColumnName="CIN" />
+                <ScalarProperty Name="num_tel" ColumnName="num_tel" />
+                <ScalarProperty Name="Prénom" ColumnName="Prénom" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="id_employé" ColumnName="id_employé" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Salaire">
+            <EntityTypeMapping TypeName="SDAIMModel.Salaire">
+              <MappingFragment StoreEntitySet="Salaire">
+                <ScalarProperty Name="nbr_h" ColumnName="nbr_h" />
+                <ScalarProperty Name="Prix_h" ColumnName="Prix_h" />
+                <ScalarProperty Name="Salaire1" ColumnName="Salaire" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="image_emp" ColumnName="image_emp" />
+                <ScalarProperty Name="Département" ColumnName="Département" />
+                <ScalarProperty Name="CIN" ColumnName="CIN" />
+                <ScalarProperty Name="num_tel" ColumnName="num_tel" />
+                <ScalarProperty Name="Prénom" ColumnName="Prénom" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="id_salaire" ColumnName="id_salaire" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stock">
+            <EntityTypeMapping TypeName="SDAIMModel.stock">
+              <MappingFragment StoreEntitySet="stock">
+                <ScalarProperty Name="Total_T_C" ColumnName="Total.T.C" />
+                <ScalarProperty Name="Total_T_V_A" ColumnName="Total.T.V.A" />
+                <ScalarProperty Name="Total_H_T" ColumnName="Total.H.T" />
+                <ScalarProperty Name="Quantité" ColumnName="Quantité" />
+                <ScalarProperty Name="Poids" ColumnName="Poids" />
+                <ScalarProperty Name="T_V_A" ColumnName="T.V.A" />
+                <ScalarProperty Name="Prix_U_H_T" ColumnName="Prix.U.H.T" />
+                <ScalarProperty Name="Fournisseur" ColumnName="Fournisseur" />
+                <ScalarProperty Name="Catégorie" ColumnName="Catégorie" />
+                <ScalarProperty Name="Unité" ColumnName="Unité" />
+                <ScalarProperty Name="Désignation" ColumnName="Désignation" />
+                <ScalarProperty Name="id_four" ColumnName="id_four" />
+                <ScalarProperty Name="id_cat" ColumnName="id_cat" />
+                <ScalarProperty Name="id_sto" ColumnName="id_sto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Project">
+            <EntityTypeMapping TypeName="SDAIMModel.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="pro_ttc" ColumnName="pro_ttc" />
+                <ScalarProperty Name="pro_désignation" ColumnName="pro_désignation" />
+                <ScalarProperty Name="pro_price" ColumnName="pro_price" />
+                <ScalarProperty Name="pro_qte" ColumnName="pro_qte" />
+                <ScalarProperty Name="pro_date" ColumnName="pro_date" />
+                <ScalarProperty Name="pro_nom" ColumnName="pro_nom" />
+                <ScalarProperty Name="id_pro" ColumnName="id_pro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Project_info">
+            <EntityTypeMapping TypeName="SDAIMModel.Project_info">
+              <MappingFragment StoreEntitySet="Project_info">
+                <ScalarProperty Name="pro_price" ColumnName="pro_price" />
+                <ScalarProperty Name="pro_date" ColumnName="pro_date" />
+                <ScalarProperty Name="pro_nom" ColumnName="pro_nom" />
+                <ScalarProperty Name="id_proi" ColumnName="id_proi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="project_p">
+            <EntityTypeMapping TypeName="SDAIMModel.project_p">
+              <MappingFragment StoreEntitySet="project_p">
+                <ScalarProperty Name="date_ppro" ColumnName="date_ppro" />
+                <ScalarProperty Name="g_ppro" ColumnName="g_ppro" />
+                <ScalarProperty Name="p_ppro" ColumnName="p_ppro" />
+                <ScalarProperty Name="pt_ppro" ColumnName="pt_ppro" />
+                <ScalarProperty Name="nom_ppro" ColumnName="nom_ppro" />
+                <ScalarProperty Name="id_ppro" ColumnName="id_ppro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user">
+            <EntityTypeMapping TypeName="SDAIMModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="pwd" ColumnName="pwd" />
+                <ScalarProperty Name="user1" ColumnName="user" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Project_m">
+            <EntityTypeMapping TypeName="SDAIMModel.Project_m">
+              <MappingFragment StoreEntitySet="Project_m">
+                <ScalarProperty Name="date_mpro" ColumnName="date_mpro" />
+                <ScalarProperty Name="prix_mpro" ColumnName="prix_mpro" />
+                <ScalarProperty Name="nom_mpro" ColumnName="nom_mpro" />
+                <ScalarProperty Name="nomp_mpro" ColumnName="nomp_mpro" />
+                <ScalarProperty Name="id_mpro" ColumnName="id_mpro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

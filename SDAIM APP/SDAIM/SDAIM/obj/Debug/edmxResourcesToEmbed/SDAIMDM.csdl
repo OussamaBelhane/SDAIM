@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SDAIMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SDAIMEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Catégorie" EntityType="SDAIMModel.Catégorie" />
+    <EntitySet Name="Fournisseurs" EntityType="SDAIMModel.Fournisseurs" />
+    <EntitySet Name="Purchase" EntityType="SDAIMModel.Purchase" />
+    <AssociationSet Name="FK_Purchase_Catégorie" Association="SDAIMModel.FK_Purchase_Catégorie">
+      <End Role="Catégorie" EntitySet="Catégorie" />
+      <End Role="Purchase" EntitySet="Purchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Fournisseurs" Association="SDAIMModel.FK_Purchase_Fournisseurs">
+      <End Role="Fournisseurs" EntitySet="Fournisseurs" />
+      <End Role="Purchase" EntitySet="Purchase" />
+    </AssociationSet>
+    <EntitySet Name="Employés" EntityType="SDAIMModel.Employés" />
+    <EntitySet Name="Salaire" EntityType="SDAIMModel.Salaire" />
+    <EntitySet Name="stock" EntityType="SDAIMModel.stock" />
+    <AssociationSet Name="FK_stock_Catégorie" Association="SDAIMModel.FK_stock_Catégorie">
+      <End Role="Catégorie" EntitySet="Catégorie" />
+      <End Role="stock" EntitySet="stock" />
+    </AssociationSet>
+    <AssociationSet Name="FK_stock_Fournisseurs" Association="SDAIMModel.FK_stock_Fournisseurs">
+      <End Role="Fournisseurs" EntitySet="Fournisseurs" />
+      <End Role="stock" EntitySet="stock" />
+    </AssociationSet>
+    <EntitySet Name="Project" EntityType="SDAIMModel.Project" />
+    <EntitySet Name="Project_info" EntityType="SDAIMModel.Project_info" />
+    <EntitySet Name="project_p" EntityType="SDAIMModel.project_p" />
+    <EntitySet Name="user" EntityType="SDAIMModel.user" />
+    <EntitySet Name="Project_m" EntityType="SDAIMModel.Project_m" />
+  </EntityContainer>
+  <EntityType Name="Catégorie">
+    <Key>
+      <PropertyRef Name="id_cat" />
+    </Key>
+    <Property Name="id_cat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom_cat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="image_cat" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Purchase" Relationship="SDAIMModel.FK_Purchase_Catégorie" FromRole="Catégorie" ToRole="Purchase" />
+    <NavigationProperty Name="stock" Relationship="SDAIMModel.FK_stock_Catégorie" FromRole="Catégorie" ToRole="stock" />
+  </EntityType>
+  <EntityType Name="Fournisseurs">
+    <Key>
+      <PropertyRef Name="id_four" />
+    </Key>
+    <Property Name="id_four" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom_four" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone_four" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email_four" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="image_four" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Purchase" Relationship="SDAIMModel.FK_Purchase_Fournisseurs" FromRole="Fournisseurs" ToRole="Purchase" />
+    <NavigationProperty Name="stock" Relationship="SDAIMModel.FK_stock_Fournisseurs" FromRole="Fournisseurs" ToRole="stock" />
+  </EntityType>
+  <EntityType Name="Purchase">
+    <Key>
+      <PropertyRef Name="id_pur" />
+    </Key>
+    <Property Name="id_pur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_cat" Type="Int32" />
+    <Property Name="id_four" Type="Int32" />
+    <Property Name="Désignation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Unité" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Catégorie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fournisseur" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prix_U_H_T" Type="Double" />
+    <Property Name="T_V_A" Type="Double" />
+    <Property Name="Poids" Type="Double" />
+    <Property Name="Quantité" Type="Double" />
+    <Property Name="Total_H_T" Type="Double" />
+    <Property Name="Total_T_V_A" Type="Double" />
+    <Property Name="Total_T_C" Type="Double" />
+    <NavigationProperty Name="Catégorie1" Relationship="SDAIMModel.FK_Purchase_Catégorie" FromRole="Purchase" ToRole="Catégorie" />
+    <NavigationProperty Name="Fournisseurs" Relationship="SDAIMModel.FK_Purchase_Fournisseurs" FromRole="Purchase" ToRole="Fournisseurs" />
+  </EntityType>
+  <Association Name="FK_Purchase_Catégorie">
+    <End Type="SDAIMModel.Catégorie" Role="Catégorie" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SDAIMModel.Purchase" Role="Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Catégorie">
+        <PropertyRef Name="id_cat" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="id_cat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_Fournisseurs">
+    <End Type="SDAIMModel.Fournisseurs" Role="Fournisseurs" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SDAIMModel.Purchase" Role="Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fournisseurs">
+        <PropertyRef Name="id_four" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="id_four" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Employés">
+    <Key>
+      <PropertyRef Name="id_employé" />
+    </Key>
+    <Property Name="id_employé" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Prénom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="num_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Département" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="image_emp" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Salaire" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Prix_h" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="nbr_h" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="Salaire">
+    <Key>
+      <PropertyRef Name="id_salaire" />
+    </Key>
+    <Property Name="id_salaire" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Prénom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="num_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Département" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="image_emp" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Salaire1" Type="Double" />
+    <Property Name="Prix_h" Type="Double" />
+    <Property Name="nbr_h" Type="Double" />
+  </EntityType>
+  <EntityType Name="stock">
+    <Key>
+      <PropertyRef Name="id_sto" />
+    </Key>
+    <Property Name="id_sto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_cat" Type="Int32" />
+    <Property Name="id_four" Type="Int32" />
+    <Property Name="Désignation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Unité" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Catégorie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fournisseur" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prix_U_H_T" Type="Double" />
+    <Property Name="T_V_A" Type="Double" />
+    <Property Name="Poids" Type="Double" />
+    <Property Name="Quantité" Type="Double" />
+    <Property Name="Total_H_T" Type="Double" />
+    <Property Name="Total_T_V_A" Type="Double" />
+    <Property Name="Total_T_C" Type="Double" />
+    <NavigationProperty Name="Catégorie1" Relationship="SDAIMModel.FK_stock_Catégorie" FromRole="stock" ToRole="Catégorie" />
+    <NavigationProperty Name="Fournisseurs" Relationship="SDAIMModel.FK_stock_Fournisseurs" FromRole="stock" ToRole="Fournisseurs" />
+  </EntityType>
+  <Association Name="FK_stock_Catégorie">
+    <End Type="SDAIMModel.Catégorie" Role="Catégorie" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SDAIMModel.stock" Role="stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Catégorie">
+        <PropertyRef Name="id_cat" />
+      </Principal>
+      <Dependent Role="stock">
+        <PropertyRef Name="id_cat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_stock_Fournisseurs">
+    <End Type="SDAIMModel.Fournisseurs" Role="Fournisseurs" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SDAIMModel.stock" Role="stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fournisseurs">
+        <PropertyRef Name="id_four" />
+      </Principal>
+      <Dependent Role="stock">
+        <PropertyRef Name="id_four" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="id_pro" />
+    </Key>
+    <Property Name="id_pro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pro_nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pro_date" Type="DateTime" Precision="0" />
+    <Property Name="pro_qte" Type="Double" />
+    <Property Name="pro_price" Type="Double" />
+    <Property Name="pro_désignation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pro_ttc" Type="Double" />
+  </EntityType>
+  <EntityType Name="Project_info">
+    <Key>
+      <PropertyRef Name="id_proi" />
+    </Key>
+    <Property Name="id_proi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pro_nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pro_date" Type="DateTime" Precision="0" />
+    <Property Name="pro_price" Type="Double" />
+  </EntityType>
+  <EntityType Name="project_p">
+    <Key>
+      <PropertyRef Name="id_ppro" />
+    </Key>
+    <Property Name="id_ppro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom_ppro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pt_ppro" Type="Double" />
+    <Property Name="p_ppro" Type="Double" />
+    <Property Name="g_ppro" Type="Double" />
+    <Property Name="date_ppro" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pwd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Project_m">
+    <Key>
+      <PropertyRef Name="id_mpro" />
+    </Key>
+    <Property Name="id_mpro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomp_mpro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nom_mpro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="prix_mpro" Type="Double" />
+    <Property Name="date_mpro" Type="DateTime" Precision="0" />
+  </EntityType>
+</Schema>
